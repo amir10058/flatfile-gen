@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.neurogine'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.sf.jasperreports:jasperreports:6.21.3'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'org.apache.commons:commons-digester3:3.2'
+    implementation 'org.beanio:beanio:2.1.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

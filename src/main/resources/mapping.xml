@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beanio xmlns="http://www.beanio.org/2012/01">
-    <stream name="flatfile" format="fixedlength">
-        <!-- Header Record -->
-        <record name="header" class="com.example.Header" minOccurs="1" maxOccurs="1">
-            <field name="recordType" position="0" length="1" padding=" " align="left"/>
-            <field name="fileType" position="13" length="10" padding=" " align="left"/>
+<beanio xmlns="http://www.beanio.org/2012/03"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+    <stream name="flatFile" format="fixedlength">
+        <record name="header" class="com.neurogine.flatfilereportgen.Header" minOccurs="1" maxOccurs="1">
+            <field name="recordType"/>
+            <field name="fileType"/>
         </record>
-
-        <!-- Body Record -->
-        <record name="body" class="com.example.Body" minOccurs="1" maxOccurs="unbounded">
-            <field name="referenceNo" position="19" length="14" padding=" " align="left"/>
-            <field name="amount" position="39" length="16" padding=" " align="left"/>
+        <record name="body" class="com.neurogine.flatfilereportgen.Body" minOccurs="1" maxOccurs="unbounded">
+            <field name="referenceNo"/>
+            <field name="amount"/>
         </record>
-
-        <!-- Trailer Record -->
-        <record name="trailer" class="com.example.Trailer" minOccurs="1" maxOccurs="1">
-            <field name="recordType" position="0" length="1" padding=" " align="left"/>
-            <field name="fileType" position="13" length="10" padding=" " align="left"/>
+        <record name="trailer" class="com.neurogine.flatfilereportgen.Trailer" minOccurs="1" maxOccurs="1">
+            <field name="recordType"/>
+            <field name="fileType"/>
         </record>
     </stream>
 </beanio>

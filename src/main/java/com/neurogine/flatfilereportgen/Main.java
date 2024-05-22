@@ -16,21 +16,17 @@ public class Main {
         BeanWriter out = null;
         try {
             out = factory.createWriter("flatFile", new FileWriter("test.TXT"));
-
             // Write Header
             Header header = new Header();
             out.write(header);
-
             // Write Body
-            List<Body> bodies = Arrays.asList(new Body("6813162459,", "RM2.00"), new Body("2039229524", "RM10.00"), new Body("2299488320", "RM5.00"));
-            for (Body body : bodies) {
+            List<Body> mockBodies = Arrays.asList(new Body("6813162459", "RM2.00"), new Body("2039229524", "RM10.00"), new Body("2299488320", "RM5.00"));
+            for (Body body : mockBodies) {
                 out.write(body);
             }
-
             // Write Trailer
             Trailer trailer = new Trailer();
             out.write(trailer);
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -39,9 +35,5 @@ public class Main {
                 out.close();
             }
         }
-    }
-
-    public static List<Body> generateData() {
-        return Arrays.asList(new Body("6813162459", "RM2.00"), new Body("2039229524", "RM10.00"), new Body("2299488320", "RM5.00"));
     }
 }

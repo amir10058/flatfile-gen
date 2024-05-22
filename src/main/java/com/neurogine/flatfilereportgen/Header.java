@@ -2,17 +2,16 @@ package com.neurogine.flatfilereportgen;
 
 import org.beanio.annotation.Field;
 import org.beanio.annotation.Record;
+import org.beanio.builder.Align;
 
 @Record
 public class Header {
-
-    @Field(at = 0, length = 1, rid = true)
+    @Field(at = 0, length = 1, align = Align.LEFT, literal = "H", rid = true)
     private String recordType = "H";
 
-    @Field(at = 13, length = 15)
+    @Field(at = 13, length = 15, align = Align.LEFT, literal = "FLAT_FILE")
     private String fileType = "FLAT_FILE";
 
-    // Getters and Setters
     public String getRecordType() {
         return recordType;
     }
